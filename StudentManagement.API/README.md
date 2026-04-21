@@ -1,6 +1,6 @@
 ﻿# Student Management System - ASP.NET Core Web API
 
-A full-stack Student Management System built with ASP.NET Core Web API (.NET 8), SQL Server, and React.js.
+A full-stack Student Management System built with ASP.NET Core Web API (.NET 8), SQL Server.
 
 
 ## 🛠️ Tech Stack
