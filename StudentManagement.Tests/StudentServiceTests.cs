@@ -30,7 +30,7 @@ namespace StudentManagement.Tests
             var students = new List<Student>
             {
                 new Student { Id = 1, Name = "Prathmesh", Email = "prathmesh@gmail.com", Age = 22, Course = "DFS.Net" },
-                new Student { Id = 2, Name = "John", Email = "john@gmail.com", Age = 25, Course = "React" }
+                new Student { Id = 2, Name = "Rohit", Email = "jadhav.com", Age = 25, Course = "Angular" }
             };
             _mockRepo.Setup(r => r.GetAllAsync()).ReturnsAsync(students);
 
