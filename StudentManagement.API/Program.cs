@@ -9,7 +9,7 @@ using StudentManagement.Repository;
 using StudentManagement.Service;
 using System.Text;
 
-// ─── Serilog Setup ───────────────────────────────────────────────────────────
+// -- Serilog Setup --
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
     .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)
@@ -19,15 +19,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseSerilog();
 
-// ─── Database ────────────────────────────────────────────────────────────────
+// -- Database----
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// ─── Dependency Injection ─────────────────────────────────────────────────────
+// -- Dependency Injection --
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 builder.Services.AddScoped<IStudentService, StudentService>();
 
-// ─── JWT Authentication ───────────────────────────────────────────────────────
+// - JWT Authentication ─
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
 var key = Encoding.UTF8.GetBytes(jwtSettings["Key"]!);
 
@@ -50,11 +50,11 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// ─── Controllers ─────────────────────────────────────────────────────────────
+// ─── Controllers ──
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-// ─── Swagger with JWT Support ─────────────────────────────────────────────────
+// ─── Swagger with JWT Support ────
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo
@@ -63,7 +63,7 @@ builder.Services.AddSwaggerGen(options =>
         Version = "v1"
     });
 
-    // Add JWT Bearer option in Swagger UI
+    // JWT Bearer
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Name = "Authorization",
@@ -90,10 +90,9 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-// ─── Build App ────────────────────────────────────────────────────────────────
 var app = builder.Build();
 
-// ─── Middleware Pipeline ──────────────────────────────────────────────────────
+// ─── Middleware Pipeline ─
 app.UseMiddleware<ExceptionMiddleware>();
 
 if (app.Environment.IsDevelopment())
