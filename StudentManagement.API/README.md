@@ -11,7 +11,6 @@ A full-stack Student Management System built with ASP.NET Core Web API (.NET 8),
 - **Authentication:** JWT (JSON Web Token)
 - **Logging:** Serilog
 - **API Docs:** Swagger UI
-- **Frontend:** React.js with Bootstrap
 - **Testing:** xUnit + Moq
 
 ## 📁 Project Structure
