@@ -1,0 +1,17 @@
+﻿# Student Management System - ASP.NET Core Web API
+
+A full-stack Student Management System built with ASP.NET Core Web API (.NET 8), SQL Server, and React.js.
+
+
+## 🛠️ Tech Stack
+
+- **Backend:** ASP.NET Core Web API (.NET 8)
+- **Database:** SQL Server
+- **ORM:** Entity Framework Core 8
+- **Authentication:** JWT (JSON Web Token)
+- **Logging:** Serilog
+- **API Docs:** Swagger UI
+- **Frontend:** React.js with Bootstrap
+- **Testing:** xUnit + Moq
+
+## 📁 Project Structure
